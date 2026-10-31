@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
-import { getUser, clearUser, User } from "@/lib/auth";
+ import { getUser, saveUser, clearUser, User } from "@/lib/auth-client";
 
 export default function UserMenu() {
   const pathname = usePathname();

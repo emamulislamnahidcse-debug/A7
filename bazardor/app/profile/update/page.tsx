@@ -4,7 +4,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { getUser, saveUser, User } from "@/lib/auth";
+import { getUser, saveUser, clearUser, User } from "@/lib/auth-client";
 
 export default function UpdateProfilePage() {
   const router = useRouter();

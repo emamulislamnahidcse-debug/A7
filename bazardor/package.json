@@ -12,6 +12,7 @@
     "better-auth": "^1.7.10",
     "daisyui": "^5.7.50",
     "next": "16.4.2",
+    "next-auth": "^4.24.15",
     "react": "19.3.0",
     "react-dom": "19.3.0",
     "react-hot-toast": "^2.6.1",

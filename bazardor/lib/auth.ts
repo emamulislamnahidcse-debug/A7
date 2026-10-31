@@ -1,20 +1,27 @@
-export type User = { name: string; email: string };
+import { NextAuthOptions } from "next-auth";
+import CredentialsProvider from "next-auth/providers/credentials";
 
-export const getUser = (): User | null => {
-  try {
-    const s = localStorage.getItem("user");
-    return s ? JSON.parse(s) : null;
-  } catch {
-    return null;
-  }
-};
-
-export const saveUser = (u: User) => {
-  localStorage.setItem("user", JSON.stringify(u));
-  window.dispatchEvent(new Event("user-change"));
-};
-
-export const clearUser = () => {
-  localStorage.removeItem("user");
-  window.dispatchEvent(new Event("user-change"));
+export const authOptions: NextAuthOptions = {
+  providers: [
+    CredentialsProvider({
+      name: "Credentials",
+      credentials: {
+        email: { label: "Email", type: "text" },
+        password: { label: "Password", type: "password" }
+      },
+      async authorize(credentials) {
+        if (credentials?.email) {
+          return { id: "1", name: "User", email: credentials.email };
+        }
+        return null;
+      }
+    })
+  ],
+  session: {
+    strategy: "jwt",
+  },
+  secret: process.env.NEXTAUTH_SECRET || "bazardor-secret-key",
+  pages: {
+    signIn: "/signin",
+  },
 };

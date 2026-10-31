@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { getUser, saveUser } from "@/lib/auth";
+import { getUser, saveUser } from "@/lib/auth-client";
 
 const inputCls =
   "mb-3.5 w-full rounded-[9px] border border-[#e1e7e0] bg-[#fafcf9] px-3.5 py-[11px] text-sm outline-none focus:border-[#058a3e]";
